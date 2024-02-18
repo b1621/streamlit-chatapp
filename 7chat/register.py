@@ -25,11 +25,19 @@ def register():
             new_user = {"username": new_username, "password": new_password}
             collection.insert_one(new_user)
             st.success("Account created successfully!")
-            time.sleep(3)
+            # time.sleep(3)
             # route to login page
             # Rerun the app to redirect to login page
+            # st.experimental_rerun()
+            st.session_state.page = 'Login'
+            # Rerun the app to reflect the changes
             st.experimental_rerun()
-            
+    st.markdown("---")
+    st.markdown(" have an account?")
+    if st.button("login to your Account"):
+        st.session_state.page = 'Login'
+        # Rerun the app to reflect the changes
+        st.experimental_rerun()
 
 
 

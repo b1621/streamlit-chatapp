@@ -9,10 +9,20 @@ db = client['chat']
 collection = db['user']
 
 # Streamlit Navigation
-page = st.sidebar.radio("Navigation", ['Login', 'Register'])
+# page = st.sidebar.radio("Navigation", ['Login', 'Register'])
 
-if page == 'Login':
+# if page == 'Login':
+#     login()
+
+# elif page == 'Register':
+#     register()
+
+# Streamlit Navigation
+if 'page' not in st.session_state:
+    st.session_state.page = 'Login'
+
+if st.session_state.page == 'Login':
     login()
 
-elif page == 'Register':
+elif st.session_state.page == 'Register':
     register()

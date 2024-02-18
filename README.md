@@ -14,10 +14,9 @@ Before running this application, ensure you have the following installed:
 
   ```
 
-// mongodb driver for python
+mongodb driver for python
 
-````bash
+```bash
    pip install pymongo
 
-   ```
-````
+```

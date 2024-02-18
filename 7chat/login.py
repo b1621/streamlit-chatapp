@@ -22,3 +22,10 @@ def login():
                 st.error("Incorrect password")
         else:
             st.error("User not found")
+        
+    st.markdown("---")
+    st.markdown("Don't have an account?")
+    if st.button("Create Account"):
+        st.session_state.page = 'Register'
+        # Rerun the app to reflect the changes
+        st.experimental_rerun()
