@@ -12,16 +12,19 @@ def login():
     password = st.text_input("Password", type='password')
 
     if st.button("Login"):
-        # Query MongoDB for user
-        user = collection.find_one({"username": username})
-
-        if user:
-            if user["password"] == password:
-                st.success("Logged in as {}".format(username))
-            else:
-                st.error("Incorrect password")
+        if not username or not password:
+            st.error("Please enter both username and password.")
         else:
-            st.error("User not found")
+            # Query MongoDB for user
+            user = collection.find_one({"username": username})
+
+            if user:
+                if user["password"] == password:
+                    st.success("Logged in as {}".format(username))
+                else:
+                    st.error("Incorrect password")
+            else:
+                st.error("User not found")
         
     st.markdown("---")
     st.markdown("Don't have an account?")
