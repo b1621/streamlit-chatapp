@@ -2,6 +2,7 @@ import streamlit as st
 from pymongo import MongoClient
 from login import login
 from register import register
+from chat import chat
 
 # Connect to MongoDB
 client = MongoClient('mongodb://localhost:27017/')
@@ -26,3 +27,6 @@ if st.session_state.page == 'Login':
 
 elif st.session_state.page == 'Register':
     register()
+
+elif st.session_state.page == 'Chat':
+    chat()

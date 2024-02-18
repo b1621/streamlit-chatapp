@@ -21,6 +21,9 @@ def login():
             if user:
                 if user["password"] == password:
                     st.success("Logged in as {}".format(username))
+                    st.session_state.page = 'Chat'
+                    # Rerun the app to reflect the changes
+                    st.experimental_rerun()
                 else:
                     st.error("Incorrect password")
             else:
